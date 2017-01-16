@@ -1,13 +1,17 @@
-<h1> smove </h1>
+smove
+========
 
-<b> About : </b> <br>
-smove is a lightweight, G-Code based CNC motion control software. <br>
-This Desktop Application is used to create CNC programs and interact <br>
-with the ATMEL Firmware smove-AF, to control simple 3D Printers. <br>
-https://github.com/krck/smove-AF <br>
+This Desktop Application is used to create CNC programs and interact with the ATMEL Firmware [smove-AF](https://github.com/krck/smove-AF) to control 3D Printers.
 
-The App is written in C++ and uses the QT Framework. <br>
+About
+--------
 
-<b> TODO </b>
+The app is written in C++ using the QT Framework and QT Creator. Goal is to create a lightweight G-Code based CNC motion control software. Including G-Code parsing and editing functions, a CNC program design GUI and also constant serial communication with the smove-AF printer firmware.
+
+This is all very much “work in progress”
+
+TODO
+--------
+
 - [ ] shitloads
 

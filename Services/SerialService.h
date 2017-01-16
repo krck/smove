@@ -50,7 +50,7 @@ private:
 
 public:
     SerialService(const std::string& portName, int baudRate) : port(portName), baud(baudRate) {
-        serial_init();
+        open_port();
     }
 
     ~Serial() { close_port(); }
@@ -91,10 +91,6 @@ public:
     //        return 0;
     //    }
 
-    int close_port() {
-        return close(this->fd);
-    }
-
     int flush() {
         sleep(2); //required to make flush work, for some reason
         return tcflush(this->fd, TCIOFLUSH);
@@ -102,7 +98,7 @@ public:
 
 
 private:
-    void serial_init() {
+    void open_port() {
         struct termios toptions;
 
         //this->fd = open(this->port.c_str(), O_RDWR | O_NOCTTY | O_NDELAY);
@@ -146,6 +142,10 @@ private:
 
         tcsetattr(fd, TCSANOW, &toptions);
         if(tcsetattr(fd, TCSAFLUSH, &toptions) < 0) { std::cerr <<"ERROR: Setting attributes\n"; return; }
+    }
+
+    int close_port() {
+        return close(this->fd);
     }
 
 };

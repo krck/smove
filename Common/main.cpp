@@ -31,13 +31,24 @@
 
 #include "Views/MainWindowView.h"
 #include <QApplication>
+#include <QTextStream>
+#include <QFile>
+#include <iostream>
 
 int main(int argc, char *argv[]) {
 
     QApplication app(argc, argv);
     MainWindowView win;
     app.setStyle("fusion");
-    win.show();
 
+    // apply the stylesheet
+//    QFile f(":style/style.qss");
+//    if (f.exists()) {
+//        f.open(QFile::ReadOnly | QFile::Text);
+//        QTextStream ts(&f);
+//        app.setStyleSheet(ts.readAll());
+//    }
+
+    win.show();
     return app.exec();
 }
